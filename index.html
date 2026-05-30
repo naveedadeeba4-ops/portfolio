@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adeeba Naveed — Copywriter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FBF6F1;
+    --card: #F5EDE4;
+    --white: #FFFFFF;
+    --rose: #B5685A;
+    --rose-light: #E8C4BA;
+    --ink: #2C2420;
+    --mid: #7A6560;
+    --light: #B5A9A4;
+    --border: #EAE0D8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.3rem 6%;
+    background: rgba(251,246,241,0.93);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--rose); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 9rem 6% 5rem;
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .hero-photo {
+    flex-shrink: 0;
+    width: 170px; height: 170px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--white);
+    box-shadow: 0 8px 30px rgba(181,104,90,0.18);
+  }
+  .hero-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .hero-text {}
+
+  .hero-welcome {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.7rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.9rem;
+  }
+  h1 em { font-style: italic; color: var(--rose); }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+    color: var(--mid);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 480px;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-ctas { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.72rem 1.8rem;
+    background: var(--rose);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: #9e5549; transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.72rem 1.8rem;
+    border: 1.5px solid var(--rose-light);
+    color: var(--rose);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--rose); transform: translateY(-1px); }
+
+  /* ── DIVIDER ── */
+  .divider { width: 80%; height: 1px; background: var(--border); margin: 0 auto; }
+
+  /* ── ABOUT ── */
+  #about {
+    padding: 6rem 6%;
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-left {}
+  .about-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.7rem;
+  }
+  .about-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .about-left h2 em { font-style: italic; color: var(--rose); }
+
+  .about-right p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--mid);
+    font-weight: 300;
+    margin-bottom: 1.1rem;
+  }
+  .about-right p strong { color: var(--ink); font-weight: 500; }
+
+  /* ── WORK INVITE ── */
+  .work-invite {
+    text-align: center;
+    padding: 3rem 6% 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .work-invite p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--rose);
+    font-weight: 400;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio {
+    padding: 2rem 6% 6rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(181,104,90,0.12);
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .pt-1 { background: linear-gradient(135deg, #EDE0D4 0%, #D4C5B5 100%); }
+  .pt-2 { background: linear-gradient(135deg, #D9E8D9 0%, #C4D9C4 100%); }
+  .pt-3 { background: linear-gradient(135deg, #E8D9E0 0%, #D9C4CC 100%); }
+
+  .project-thumb-icon { opacity: 0.5; font-size: 3rem; }
+
+  .project-body { padding: 1.3rem 1.4rem 1.6rem; }
+  .project-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.4rem;
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .project-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  .project-link:hover { opacity: 0.7; }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--card);
+    padding: 6rem 6%;
+  }
+  .services-inner { max-width: 860px; margin: 0 auto; }
+
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.6rem;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .section-header h2 em { font-style: italic; color: var(--rose); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2rem 1.6rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .service-card:hover { border-color: var(--rose-light); transform: translateY(-3px); }
+
+  .service-icon { font-size: 1.5rem; margin-bottom: 0.9rem; }
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .service-desc {
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ── SKILLS ── */
+  #skills { padding: 6rem 6%; max-width: 860px; margin: 0 auto; }
+
+  .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+  .skill-pill {
+    padding: 0.5rem 1.2rem;
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: var(--mid);
+    background: var(--white);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-pill:hover { border-color: var(--rose-light); color: var(--rose); }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--card);
+    padding: 5rem 6%;
+    text-align: center;
+  }
+  .cta-band p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-style: italic;
+    color: var(--rose);
+    max-width: 620px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+  }
+
+  /* ── CONTACT ── */
+  #contact { padding: 6rem 6%; max-width: 860px; margin: 0 auto; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-left {}
+  .contact-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .contact-left h2 em { font-style: italic; color: var(--rose); }
+  .contact-left p {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 0.9rem; }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1.2rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.85rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .contact-link:hover { border-color: var(--rose-light); transform: translateX(4px); }
+  .contact-link-icon {
+    width: 32px; height: 32px;
+    background: var(--card);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .contact-link-sub { font-size: 0.7rem; color: var(--light); margin-top: 1px; }
+
+  .resume-box {
+    padding: 2rem;
+    background: var(--ink);
+    border-radius: 4px;
+    color: var(--white);
+  }
+  .resume-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+  .resume-box p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 1.4rem;
+    font-weight: 300;
+  }
+  .btn-white {
+    display: inline-block;
+    padding: 0.65rem 1.6rem;
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background 0.2s;
+  }
+  .btn-white:hover { background: var(--rose-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    max-width: 100%;
+  }
+
+  .footer-left {}
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .footer-info {
+    font-size: 0.75rem;
+    color: var(--light);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-socials { display: flex; gap: 1.2rem; }
+  .footer-socials a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-socials a:hover { color: var(--rose); }
+
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; padding-top: 7rem; }
+    .hero-ctas { justify-content: center; }
+    #about { grid-template-columns: 1fr; gap: 2rem; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Adeeba Naveed</a>
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Get in touch</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-photo">
+    <img src="data:image/jpeg;base64,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" alt="Adeeba Naveed">
+  </div>
+  <div class="hero-text">
+    <div class="hero-welcome">Hello &amp; Welcome</div>
+    <h1>I’m <em>Adeeba Naveed</em>, a freelance health &amp; fitness copywriter.</h1>
+    <p class="hero-tagline">I blend clinical background knowledge with conversion-focused strategy to write high-impact copy for wellness brands, medical practices, and fitness platforms.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Work With Me</a>
+      <a href="#portfolio" class="btn-ghost">View Portfolio</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="about" class="reveal">
+  <div class="about-left">
+    <div class="about-label">About Me</div>
+    <h2>Bridging the gap between <em>science</em> and <em>storytelling</em>.</h2>
+  </div>
+  <div class="about-right">
+    <p>As a <strong>Doctor of Physical Therapy (DPT) student</strong>, my days are spent analyzing clinical research, understanding human anatomy, and treating patients. But my deep passion for wellness goes beyond the clinic—it extends to how health concepts are communicated to the world.</p>
+    <p>That is why I specialize in <strong>health and fitness copywriting</strong>. I understand the intricate medical terminology, but more importantly, I know how to translate it into clear, engaging, and empathetic copy that resonates with everyday readers while maintaining absolute clinical integrity.</p>
+    <p>Whether you need evidence-backed long-form articles, high-converting sales landing pages, or authoritative website content, I provide content that builds trust, commands authority, and drives real action.</p>
+  </div>
+</section>
+
+<div class="work-invite reveal">
+  <p>Explore a Selection of My Work</p>
+</div>
+
+<section id="portfolio" class="reveal">
+  <div class="portfolio-grid">
+    
+    <div class="project-card">
+      <div class="project-thumb pt-1">
+        <span class="project-thumb-icon">🏃‍♂️</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tag">Long-Form Article</div>
+        <h3 class="project-title">The Biomechanics of Running Injuries</h3>
+        <p class="project-desc">A deep-dive, SEO-optimized educational piece explaining common strain patterns, injury prevention, and physical rehabilitation guidelines.</p>
+        <a href="#" class="project-link">Read Article →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb pt-2">
+        <span class="project-thumb-icon">🥗</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tag">Landing Page</div>
+        <h3 class="project-title">Nourish &amp; Move Coaching Program</h3>
+        <p class="project-desc">High-converting sales page copywriting for a holistic 12-week health optimization program, focusing on behavioral habit formation.</p>
+        <a href="#" class="project-link">View Copy →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-thumb pt-3">
+        <span class="project-thumb-icon">🧴</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tag">Email Campaign</div>
+        <h3 class="project-title">Minimalist Skincare Brand Launch</h3>
+        <p class="project-desc">A sequence of 5 launch emails utilizing storytelling, clean aesthetics, and chemical transparency to build brand loyalty.</p>
+        <a href="#" class="project-link">Read Sequence →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="services">
+  <div class="services-inner reveal">
+    <div class="section-header">
+      <div class="section-label">Expertise</div>
+      <h2>Services <em>I Offer</em></h2>
+    </div>
+    <div class="services-grid">
+      
+      <div class="service-card">
+        <div class="service-icon">📝</div>
+        <h3 class="service-title">Website Copywriting</h3>
+        <p class="service-desc">Transform your homepage, about page, and service pages into authoritative, client-winning journeys that reflect your medical or wellness expertise.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3 class="service-title">SEO Content &amp; Blogs</h3>
+        <p class="service-desc">Evidence-based long-form articles that comprehensively answer your audience's health questions, rank on Google, and establish medical authority.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📧</div>
+        <h3 class="service-title">Email Marketing</h3>
+        <p class="service-desc">Nurture sequences, educational newsletters, and promotional campaigns designed to foster close community trust and encourage repeat bookings.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="section-header">
+    <div class="section-label">Core Competencies</div>
+    <h2>Skills &amp; <em>Specialties</em></h2>
+  </div>
+  <div class="skills-wrap">
+    <span class="skill-pill">Health &amp; Wellness Copywriting</span>
+    <span class="skill-pill">Medical &amp; Physical Therapy Content</span>
+    <span class="skill-pill">Search Engine Optimization (SEO)</span>
+    <span class="skill-pill">Conversion Rate Optimization (CRO)</span>
+    <span class="skill-pill">B2C Content Strategy</span>
+    <span class="skill-pill">Long-Form Educational Articles</span>
+    <span class="skill-pill">Email Copywriting &amp; Storytelling</span>
+    <span class="skill-pill">Evidence-Based Research Translation</span>
+  </div>
+</section>
+
+<section class="cta-band reveal">
+  <p>"Let's make clinical expertise sound beautifully human."</p>
+  <a href="#contact" class="btn-primary">Start a Project</a>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <h2>Let's build something <em>together</em>.</h2>
+      <p>Whether you're looking to scale your fitness platform, update your clinical website with authoritative copy, or collaborate on consistent content, I'd love to hear from you.</p>
+      
+      <div class="contact-links">
+        <a href="mailto:adeeba.naveed.copy@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          <div>
+            <div>Email Me</div>
+            <div class="contact-link-sub">adeeba.naveed.copy@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="contact-link">
+          <div class="contact-link-icon">💼</div>
+          <div>
+            <div>LinkedIn</div>
+            <div class="contact-link-sub">Connect Professional Profile</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <div class="resume-box">
+        <h3>Professional Credentials</h3>
+        <p>Want a comprehensive view of my academic standing, clinical experience, and marketing achievements? Download my complete resume below.</p>
+        <a href="Adeeba_Naveed_Resume.pdf" download="Adeeba_Naveed_Resume.pdf" class="btn-white">Download Resume →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-name">Adeeba Naveed</div>
+    <div class="footer-info">© 2026 Freelance Portfolio — Karachi, PK</div>
+  </div>
+  <div class="footer-socials">
+    <a href="#about">About</a>
+    <a href="#portfolio">Work</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  // Simple scroll animation for revealing sections
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    for (let i = 0; i < revealElements.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = revealElements[i].getBoundingClientRect().top;
+      const elementVisible = 100;
+      if (elementTop < windowHeight - elementVisible) {
+        revealElements[i].classList.add('visible');
+      }
+    }
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  // Trigger initial check
+  revealOnScroll();
+</script>
+
+</body>
+</html>
